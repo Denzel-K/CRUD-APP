@@ -1,0 +1,68 @@
+<!-- include header -->
+<%- include('partials/_header') %>
+<!-- /include header -->
+
+
+    <!-- Main Site -->
+    <main class="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add" class="border-shadow add_get_link">
+                    <div class="add_get">
+                        <span class="new">New User</span>
+                        <span class="user_icon"><img src="images/user.png" alt="user"></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- form handling -->
+            <!--<form action="/" method="POST">-->
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Marital Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < users.length; i++) { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= users[i].name %></td>
+                                <td><%= users[i].email %></td>
+                                <td><%= users[i].gender %></td>
+                                <td><%= users[i].status %></td>
+                                <td class="action_column">
+                                    <div class="action_box">
+                                        <div class="actions">
+                                            <a href="/update?id=<%= users[i]._id%>" class="btn update btn_update">
+                                                <img src="images/pencil-solid.svg" alt="delete">
+                                            </a>
+                                        </div>
+                            
+                                        <div class="actions">
+                        
+                                            <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+                                                <span class="text-gradient"><img src="images/trash-can-solid.svg" alt="delete"></span>
+                                            </a>
+                                        </div>
+                                    </div> 
+                                </td>
+                            </tr>
+                            <% } %>
+                        
+                    </tbody>
+                </table>
+            <!--</form>-->
+        </div>
+    </main>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('partials/_footer') %>
+<!-- /include footer -->
